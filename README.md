@@ -27,32 +27,72 @@ Create a new directory to store your Terraform configuration files:
 mkdir terraform-azure
 cd terraform-azure
 
+2. Authenticate to Azure portal using Azure CLI (install it
+
 2. Install the Visual Studio Code Terraform extension.
 
 ![image](https://github.com/user-attachments/assets/6b238a74-27cd-48c8-b047-6d4a625cd9c1)
 
-3. Initialize Terraform:
+3. Define the version of Terraform and the cloud provider that we will connect to.
 
-4. Login to the Azure CLI:
+![image](https://github.com/user-attachments/assets/cf810f60-5652-4f46-96dc-82cd0eeb4888)
 
-Follow the instructions from this official Microsoft documentation to check there are https://learn.microsoft.com/bs-latn-ba/cli/azure/authenticate-azure-cli
+4. Check the validity of the file:
 
-To verify the successful login you can run the following command:
+terraform fmt
+  
+5. Initialize Terraform:
 
-![image](https://github.com/user-attachments/assets/fd7e43e9-b36f-407c-bb2a-584dfb9defb3)
+terraform init
+
+![image](https://github.com/user-attachments/assets/ec1e0286-9cff-4f54-8a57-9f79b081b79e)
+
+**Important notes:** 
+
+- Terraform init is interested only in provider related stuff.
+- If we change something in the provider block and run terraform init (as in the below example), it will have no problem to run successfully.
+
+![image](https://github.com/user-attachments/assets/9b45a69e-bf69-4035-932b-bf18e4b8ff00)
+
+- If we run the wrong name of the provider, **terraform init** will fail. So terraform init is not enough to test the code. 
+
+- terraform.lock.hcl is a file that communicates with the Azure API and maintain the version of terraform that we declared.
+
+![image](https://github.com/user-attachments/assets/5e6889ff-d1b5-4efd-8fd4-93261e124bd2)
 
 
+6. Create a resource group:
+
+![image](https://github.com/user-attachments/assets/db6259fe-83e1-40f0-a392-0f8cdc94fbe7)
+
+*Run **Terraform plan** (commans that creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure.) and then **Terraform apply** (command executes the actions proposed in a Terraform plan.)
+
+**Note:** If you do want to apply the changes planned in the Terraform plan, directly in environment, without any other proper verification, we can use Terraform apply -auto-approve.
+
+Created successfully in the Azure portal:
+
+![image](https://github.com/user-attachments/assets/ff5c0325-6910-4a48-af34-5846803034e7)
+
+**Important notes:** Double check the creation of the resource in the Azure portal.
+
+7. Create a virtual network:
+
+![image](https://github.com/user-attachments/assets/3583c980-b5b7-465a-af63-d763f6b3d603)
+
+**Note:** 
+- In this case I introduced the reference attributes of other resources.
+- Why this concept of reference is not used? Because it creates a logical order of things: In our case you can't deploy to a virtual network if you haven't created and deployed to a resource group. 
+
+
+
+<h2> Project improvement </h2>
 
 <h2> Conclusion </h2>
-This serverless file sharing platform offers a cost-effective and scalable solution for secure file uploads and downloads. By leveraging AWS services such as Lambda, API Gateway, and S3, it eliminates the need for managing physical servers, reducing operational overhead and costs.
+
 
 **Key benefits of the serverless application in real-world scenarios:**
 
 
-- Scalability: The platform can automatically scale to handle varying workloads, ensuring high availability and performance even during peak traffic.
-- Cost-efficiency: Serverless architecture eliminates the need to pay for idle resources, making it cost-effective for applications with fluctuating workloads.
-- Reduced maintenance: The platform handles server management and infrastructure updates, freeing developers to focus on application development.
-- Rapid deployment: Serverless functions can be deployed quickly and easily, accelerating time-to-market.
-- Integration with other AWS services: The platform can be easily integrated with other AWS services like Cognito for user authentication, DynamoDB for data storage, and SQS for asynchronous processing.
+
 
 Overall, this serverless file sharing platform provides a robust and flexible solution for various file sharing and storage needs, making it ideal for businesses and individuals seeking a scalable and cost-effective solution.
