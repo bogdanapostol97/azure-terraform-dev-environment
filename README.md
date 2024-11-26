@@ -14,9 +14,9 @@ This project leverages AWS services to provide a scalable and secure solution fo
 
 <h2> Prerequisites </h2>
 
-- Azure Account: A valid Azure account with appropriate permissions.
-- Terraform: Installed on your local machine.
-- Azure CLI: Installed and configured with your Azure credentials.
+- **Azure Account:** A valid Azure account with appropriate permissions.
+- **Terraform:** Installed on your local machine.
+- **Azure CLI:** Installed and configured with your Azure credentials.
 
 <h2> Implementation guide </h2>
 
@@ -27,21 +27,21 @@ Create a new directory to store your Terraform configuration files:
 mkdir terraform-azure
 cd terraform-azure
 
-2. Authenticate to Azure portal using Azure CLI (install it
+2. Authenticate to Azure portal using Azure CLI (install it is missing following the instructions from this article: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
-2. Install the Visual Studio Code Terraform extension.
+3. Install the Visual Studio Code Terraform extension.
 
 ![image](https://github.com/user-attachments/assets/6b238a74-27cd-48c8-b047-6d4a625cd9c1)
 
-3. Define the version of Terraform and the cloud provider that we will connect to.
+4. Define the version of Terraform and the cloud provider that we will connect to.
 
 ![image](https://github.com/user-attachments/assets/cf810f60-5652-4f46-96dc-82cd0eeb4888)
 
-4. Check the validity of the file:
+5. Check the validity of the file:
 
 terraform fmt
   
-5. Initialize Terraform:
+6. Initialize Terraform:
 
 terraform init
 
@@ -61,7 +61,7 @@ terraform init
 ![image](https://github.com/user-attachments/assets/5e6889ff-d1b5-4efd-8fd4-93261e124bd2)
 
 
-6. Create a resource group:
+7. Create a resource group:
 
 ![image](https://github.com/user-attachments/assets/db6259fe-83e1-40f0-a392-0f8cdc94fbe7)
 
@@ -75,7 +75,7 @@ Created successfully in the Azure portal:
 
 **Important notes:** Double check the creation of the resource in the Azure portal.
 
-7. Create a virtual network:
+8. Create a virtual network:
 
 ![image](https://github.com/user-attachments/assets/3583c980-b5b7-465a-af63-d763f6b3d603)
 
@@ -85,7 +85,7 @@ Created successfully in the Azure portal:
 
 ![image](https://github.com/user-attachments/assets/5bd55b28-d345-4c21-8970-051ba40e8ac1)
 
-8. At this point we can check the structure of a terraform.tfstate file.
+9. At this point we can check the structure of a terraform.tfstate file.
 
 ![image](https://github.com/user-attachments/assets/1051b826-d9b0-47b9-b8a2-6de33e281b2d)
 
@@ -96,7 +96,7 @@ Created successfully in the Azure portal:
 - If the state was corrupted or you made a big mistake, you can delete the tfstate and rename the backup as terraform.tfstate.
 - If we want everything back to the initial state with all the resources, we will run terraform apply again. 
 
-9. Create a subnet:
+10. Create a subnet:
 
 ![image](https://github.com/user-attachments/assets/ee3ce5cb-e6ee-4879-88d4-0f1ea97961fd)
 
