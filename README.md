@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7f0160e0-7125-4741-bd98-ec07ffa47ba0)![image](https://github.com/user-attachments/assets/03809d04-8a99-4c9c-a503-8c1014f07c38)<h1> Azure DEV Environment using Terraform </h1>
+<h1> Azure DEV Environment using Terraform </h1>
 
 In this lab I developed a Terraform DEV environment using Visual Studio Code to deploy an Azure Ubuntu virtual machine that I can SSH into to have my own redeployable environment
 
@@ -140,7 +140,7 @@ The proof it was created in Azure portal:
 
 ![image](https://github.com/user-attachments/assets/2fd71827-fa13-4d80-be23-1e4e31324e55)
 
-**Note:** The value of the public IP will not show up when we run terraform state show command until it is attached to a resources and it is used somewhere.
+**Note:** The value of the public IP will not show up when we run **terraform state show** command until it is attached to a resources and it is used somewhere.
 
 14. A linux Virtual Machine: 
 
@@ -165,7 +165,7 @@ Terraform show:
 
 15. SSH connect to VM:
 
-- After running the **terraform state show azurerm_linux_virtual_machine.mtc-vm, you take the public IP from the Virtual Machine details that are listed:
+- After running the **terraform state show azurerm_linux_virtual_machine.mtc-vm**, you take the public IP from the Virtual Machine details that are listed:
   
 ![image](https://github.com/user-attachments/assets/be411f4c-b74b-4475-a6f1-a4febbfea6ff)
 
@@ -184,17 +184,13 @@ Terraform show:
 
 ![image](https://github.com/user-attachments/assets/e2274aa7-0862-4de9-b7bf-1f15880c1bae)
 
-- Create a file containing the following script:
-
-![image](https://github.com/user-attachments/assets/827f847b-51f4-468c-826d-2cf7c73aa2c6)
-
 - We add the reference of the custom data file in the definition of VM in the terraform file like this:
 
 ![image](https://github.com/user-attachments/assets/b47dc6c4-8b06-4b27-8c6c-6ee8eb495303)
 
 **Note:** 
 
-- After implementing the above steps, we need to run terraform plan && terraform apply once again to replace the VM already created with a new one, SSH connect to the new VM and verify the docker installation with **docker --version** command.
+- After implementing the above steps, we need to run **terraform plan** && **terraform apply** once again to replace the VM already created with a new one, SSH connect to the new VM and verify the docker installation with **docker --version** command.
 - **filebase64** - reads the contents of a file at the given path and returns them as a base64-encoded string.
 
 17 Final enhacements:
@@ -228,12 +224,12 @@ Terraform show:
 - Organize modules into a hierarchical structure for better management.
 - Use variables and outputs to make modules flexible and configurable.
 
-3. Implement Continuous Integration and Continuous Delivery (CI/CD):
+**3. Implement Continuous Integration and Continuous Delivery (CI/CD):**
 
 - Set up a CI/CD pipeline to automate the testing, building, and deployment of your infrastructure.
 - Use tools like Jenkins, GitLab CI/CD, or Azure DevOps to define and execute your pipeline.
 - Integrate with version control systems like Git to track changes and manage deployments.
 
 <h2> Conclusion </h2>
-By following the best practices outlined in this document, you can streamline your Terraform infrastructure provisioning process, enhance code quality, and reduce the risk of errors. Leveraging modules, variables, and automated testing, you can create a more efficient and reliable infrastructure. Remember to adapt these practices to your specific needs and continuously improve your Terraform workflows.
+By following the best practices outlined in this document, you can streamline your Terraform infrastructure provisioning process, enhance code quality, and reduce the risk of errors. Leveraging modules, variables, and automated testing, you can create a more efficient and reliable infrastructure.
 
